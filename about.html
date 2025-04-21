@@ -6,53 +6,50 @@
   <title>About Us - Your Trading Course</title>
   <link rel="stylesheet" href="styles.css">
   <style>
-    /* Modal Styles */
+    /* Locked link styling */
+    #coursesLock.locked {
+      color: #bbb;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    /* Modal overlay */
     .modal {
       display: none;
-      position: fixed;
+      position: fixed; top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
       z-index: 1000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgba(0,0,0,0.5);
     }
+    /* Modal box */
     .modal-content {
-      background-color: #fff;
+      background: #fff;
       margin: 10% auto;
       padding: 20px;
+      max-width: 400px;
       border-radius: 8px;
-      width: 80%;
-      max-width: 500px;
       text-align: center;
       position: relative;
     }
-    .subscription-option, .modal-content button {
-      background: #27ae60;
-      border: none;
-      color: #fff;
-      padding: 10px 20px;
-      margin: 10px;
-      font-size: 1em;
-      cursor: pointer;
-      border-radius: 5px;
-      transition: background 0.3s ease;
-    }
-    .subscription-option:hover, .modal-content button:hover {
-      background: #2ecc71;
-    }
-    .close {
-      color: #aaa;
+    .modal-content .close {
       position: absolute;
-      top: 10px;
-      right: 15px;
-      font-size: 28px;
+      top: 10px; right: 15px;
+      font-size: 24px;
       font-weight: bold;
+      color: #666;
       cursor: pointer;
     }
-    .close:hover {
-      color: #000;
+    .subscription-option {
+      background: #27ae60;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      margin: 10px 5px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .subscription-option:hover {
+      background: #2ecc71;
     }
   </style>
 </head>
@@ -64,7 +61,7 @@
 
   <nav>
     <a href="index.html">Home</a>
-    <a href="#" id="coursesLink">Courses</a>
+    <a href="#" id="coursesLock" class="locked">Courses</a>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
   </nav>
@@ -82,32 +79,23 @@
 
     <h2>Meet the Team</h2>
     <div class="team">
+      <!-- Team Member 1 -->
       <div class="team-member">
         <h3>@JoeyStockton7</h3>
         <p>Founder &amp; CEO</p>
-        <p>
-          I'm Joey Favazzo, a dedicated trader with over four years of active trading experience and more than six years of analyzing market charts. Specializing in intraday scalping while incorporating strategic swing trades, I focus on precision, discipline, and risk management to navigate the markets effectively. My passion for trading is driven by my family—my five siblings and the two greatest parents—who inspire me to push forward every day. Through my journey, I aim to share valuable insights, help others grow in the market, and continue refining my craft in the pursuit of financial freedom.
-        </p>
+        <p>I'm Joey Favazzo, a dedicated trader with over four years of active trading experience and more than six years of analyzing market charts...<!--etc.-->&#8203;:contentReference[oaicite:0]{index=0}&#8203;:contentReference[oaicite:1]{index=1}</p>
       </div>
+      <!-- Team Member 2 -->
       <div class="team-member">
         <h3>@JoeyStockton7</h3>
         <p>Lead Educator</p>
-        <p>
-          What sets me apart as an educator is the journey I've taken to get here. Trading has been a path filled with hard-learned lessons—countless losses that became my greatest teachers, years of backtracking my strategy to refine what truly works, and an in-depth study of every indicator I use. I’ve built extensive knowledge not just by understanding the technical side of trading, but by learning how to simplify it. My goal is to take complex concepts and break them down into a format that is easy to grasp, helping others accelerate their learning curve and avoid the same pitfalls I once faced. Whether you're new to the markets or looking to sharpen your skills, I’m here to provide clear, actionable guidance that can take your trading to the next level.
-        </p>
+        <p>What sets me apart as an educator is the journey I've taken to get here...<!--etc.-->&#8203;:contentReference[oaicite:2]{index=2}&#8203;:contentReference[oaicite:3]{index=3}</p>
       </div>
+      <!-- Team Member 3 -->
       <div class="team-member">
         <h3>@JoeyStockton7</h3>
         <p>Technical Analyst Tools</p>
-        <p>
-          Successful trading starts with a well-structured approach to technical analysis, and my strategy is built on a combination of proven indicators and price action techniques. Every trade setup I analyze is guided by a blend of momentum tracking, trend identification, and key level confirmations to maximize precision and probability.
-        </p>
-        <p>
-          I utilize Exponential Moving Averages (EMAs – 9, 21, 30, 200) to assess short-term momentum shifts and overall trend direction. The VWAP (Volume Weighted Average Price) serves as a critical benchmark for institutional positioning, helping identify high-probability entry and exit points. Fibonacci Extensions allow me to project potential price targets based on market structure, while zones and key levels provide a strong foundation for identifying areas of significant buying or selling pressure.
-        </p>
-        <p>
-          By combining these tools, I develop a clear picture of market sentiment, ensuring that every trade is backed by confluence and logic rather than emotion. My focus is on refining setups with precision, staying patient for confirmation, and executing trades with confidence.
-        </p>
+        <p>Successful trading starts with a well-structured approach to technical analysis...<!--etc.-->&#8203;:contentReference[oaicite:4]{index=4}&#8203;:contentReference[oaicite:5]{index=5}</p>
       </div>
     </div>
 
@@ -124,9 +112,9 @@
     <div class="modal-content">
       <span class="close" id="closeSubscriptionModal">&times;</span>
       <h2>Unlock Full Access</h2>
-      <p>Gain full access to our courses and join our exclusive community.</p>
+      <p>Gain full access to our courses by choosing a plan below:</p>
       <button class="subscription-option" onclick="subscribe('monthly')">$99 / month</button>
-      <button class="subscription-option" onclick="subscribe('yearly')">$1499</button>
+      <button class="subscription-option" onclick="subscribe('yearly')">$1499 / year</button>
     </div>
   </div>
 
@@ -136,34 +124,32 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      var link       = document.getElementById('coursesLink');
-      var modal      = document.getElementById('subscriptionModal');
-      var closeBtn   = document.getElementById('closeSubscriptionModal');
+      var link     = document.getElementById('coursesLock');
+      var modal    = document.getElementById('subscriptionModal');
+      var closeBtn = document.getElementById('closeSubscriptionModal');
+      var paid     = localStorage.getItem('paid') === 'true';
 
-      // Set up the link based on payment flag
-      function updateLink() {
-        if (localStorage.getItem('jsi_paid') === 'true') {
-          link.href = 'courses.html';
-        } else {
-          link.href = '#';
-        }
+      // Lock or unlock
+      if (paid) {
+        link.classList.remove('locked');
+        link.href = 'courses.html';
+      } else {
+        link.classList.add('locked');
+        link.href = '#';
       }
-      updateLink();
 
-      // If not paid, open modal on click
+      // Show modal if locked
       link.addEventListener('click', function(e) {
-        if (localStorage.getItem('jsi_paid') !== 'true') {
+        if (!paid) {
           e.preventDefault();
           modal.style.display = 'block';
         }
       });
 
-      // Close modal when clicking “×”
+      // Close modal
       closeBtn.addEventListener('click', function() {
         modal.style.display = 'none';
       });
-
-      // Close modal when clicking outside its content
       window.addEventListener('click', function(e) {
         if (e.target === modal) {
           modal.style.display = 'none';
@@ -171,14 +157,12 @@
       });
     });
 
-    // Redirect to Whop and mark paid
     function subscribe(plan) {
-      if (plan === 'monthly') {
-        window.location.href = 'https://whop.com/checkout/plan_Ldt1KHTQcxztD?d2c=true';
-      } else {
-        window.location.href = 'https://whop.com/checkout/plan_4SMRUwP4LppG3?d2c=true';
-      }
-      localStorage.setItem('jsi_paid', 'true');
+      localStorage.setItem('paid', 'true');
+      var url = plan === 'monthly'
+        ? 'https://whop.com/checkout/plan_Ldt1KHTQcxztD?d2c=true'
+        : 'https://whop.com/checkout/plan_4SMRUwP4LppG3?d2c=true';
+      window.location.href = url;
     }
   </script>
 </body>
