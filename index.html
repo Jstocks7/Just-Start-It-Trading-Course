@@ -6,7 +6,7 @@
   <title>Your Trading Course</title>
   <link rel="stylesheet" href="styles.css" />
   <style>
-    /* Overall Page Styles */
+    /* Global Styles */
     body { font-family: Arial, sans-serif; background: #f0f2f5; color: #333; margin: 0; padding: 0; }
     header { background: #2c3e50; color: #ecf0f1; padding: 20px; position: relative; }
     header .header-content { max-width: 1000px; margin: 0 auto; text-align: center; }
@@ -14,100 +14,75 @@
     header .auth-buttons a { background: #27ae60; color: #fff; padding: 8px 16px; text-decoration: none; border-radius: 4px; font-weight: bold; transition: background 0.3s; cursor: pointer; }
     header .auth-buttons a:hover { background: #2ecc71; }
     nav { background: #34495e; padding: 10px; text-align: center; }
-    nav a { color: #ecf0f1; text-decoration: none; margin: 0 15px; font-weight: bold; transition: color 0.3s; cursor: pointer; }
+    nav a { color: #ecf0f1; text-decoration: none; margin: 0 15px; font-weight: bold; transition: color 0.3s; }
     nav a:hover { color: #e74c3c; }
     .hero { background: url('https://via.placeholder.com/1200x400/ffffff/cccccc?text=Trading+Chart') no-repeat center center/cover; color: #fff; text-align: center; padding: 100px 20px; position: relative; }
-    .hero::after { content: ""; position: absolute; top: 0; bottom: 0; left: 0; right: 0; background: rgba(0, 0, 0, 0.5); }
+    .hero::after { content: ""; position: absolute; top: 0; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.5); }
     .hero h2, .hero a.cta-button { position: relative; z-index: 1; }
-    .cta-button { background: #27ae60; padding: 15px 30px; color: #fff; text-decoration: none; border-radius: 5px; font-size: 1.1em; margin-top: 20px; display: inline-block; transition: background 0.3s ease; cursor: pointer; }
+    .cta-button { background: #27ae60; padding: 15px 30px; color: #fff; text-decoration: none; border-radius: 5px; font-size: 1.1em; margin-top: 20px; display: inline-block; transition: background 0.3s ease; }
     .cta-button:hover { background: #2ecc71; }
-    .section { padding: 40px 20px; max-width: 1000px; margin: 20px auto; background: #fff; border-radius: 8px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); }
-    .section h2 { text-align: center; margin-bottom: 20px; color: #2c3e50; }
-    .video-section { text-align: center; }
-    .video-section iframe { width: 100%; max-width: 800px; height: 480px; border: none; border-radius: 8px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); }
-    .pricing-section { display: flex; flex-wrap: wrap; justify-content: space-between; text-align: left; }
-    .pricing-section .tier { width: 48%; background: #fff; border-radius: 8px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); }
-    .pricing-section .tier h3 { color: #2c3e50; margin-top: 0; }
-    .pricing-section .tier ul { list-style-type: disc; margin-left: 20px; padding-left: 0; }
-    .quotes blockquote { font-style: italic; background: #ecf0f1; border-left: 5px solid #27ae60; margin: 20px 0; padding: 20px; border-radius: 5px; position: relative; }
-    .quotes blockquote::before { content: "“"; font-size: 3em; color: #27ae60; position: absolute; left: 10px; top: -10px; }
-    .quotes .author { display: block; text-align: right; margin-top: 10px; font-weight: bold; color: #e74c3c; }
-    .facts p { font-size: 1.1em; text-align: center; margin: 10px 0; }
-    footer { background: #2c3e50; color: #ecf0f1; text-align: center; padding: 15px; margin-top: 20px; }
-    footer a { color: #27ae60; text-decoration: none; margin-left: 10px; cursor: pointer; }
-    footer a:hover { text-decoration: underline; }
-    .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0, 0, 0, 0.5); }
-    .modal-content { background-color: #fff; margin: 10% auto; padding: 20px; border-radius: 8px; width: 80%; max-width: 500px; text-align: center; position: relative; }
-    .modal-content h2 { margin-top: 0; color: #2c3e50; }
-    .modal-content p { font-size: 1.1em; margin: 15px 0; }
-    .subscription-option, .modal-content button { background: #27ae60; border: none; color: #fff; padding: 10px 20px; margin: 10px; font-size: 1em; cursor: pointer; border-radius: 5px; transition: background 0.3s ease; }
-    .subscription-option:hover, .modal-content button:hover { background: #2ecc71; }
-    .close { color: #aaa; position: absolute; top: 10px; right: 15px; font-size: 28px; font-weight: bold; cursor: pointer; }
-    .close:hover { color: #000; }
-    .form-container input, .form-container button, .form-toggle a { width: 100%; padding: 10px; margin: 8px 0; border-radius: 4px; }
+    .section { padding: 40px 20px; max-width: 1000px; margin: 20px auto; background: #fff; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
+    .section h2 { text-align: center; color: #2c3e50; margin-bottom: 20px; }
+    .courses-list { list-style: none; padding: 0; }
+    .courses-list li { padding: 8px 0; border-bottom: 1px solid #eee; }
+    .video-section iframe { width: 100%; max-width: 800px; height: auto; border: none; display: block; margin: 0 auto; border-radius: 8px; }
   </style>
 </head>
 <body>
-  <!-- Header -->
   <header>
     <div class="header-content">
       <h1>Welcome to the JSI Trading Course</h1>
       <p>Learn to trade like a pro with our expert-led courses.</p>
     </div>
-    <div class="auth-buttons" id="authButtons"></div>
+    <div class="auth-buttons">
+      <a href="#" id="authButton">Login / Sign Up</a>
+    </div>
   </header>
 
-  <!-- Navigation -->
   <nav>
     <a href="index.html">Home</a>
-    <a href="#" id="coursesLock">Courses</a>
+    <a href="courses.html" id="coursesLock">Courses</a>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
   </nav>
 
-  <!-- Hero Section -->
   <div class="hero">
     <h2>Start Your Trading Journey Today</h2>
-    <a href="#" class="cta-button" id="unlockButton">Explore Courses</a>
+    <a href="courses.html" class="cta-button" id="unlockButton">Explore Courses</a>
   </div>
 
-  <!-- Courses Section -->
   <div class="section courses-section">
     <h2>Our Courses</h2>
     <ul class="courses-list">
-      <li>Introduction to Trading</li>
-      <li>Technical Analysis Basics</li>
-      <li>Chart Patterns & Trends</li>
-      <li>Understanding Fibonacci Retracements & Extensions</li>
-      <li>Risk Management & Position Sizing</li>
-      <li>Technical Indicators & Tools</li>
-      <li>Options Vs. Common Stock</li>
-      <li>Fundamental Analysis For Traders</li>
-      <li>Understanding Greeks In Options</li>
-      <li>Trading Psychology</li>
-      <li>Using Leverage Safely</li>
-      <li>Creating a Trading Plan</li>
-      <li>Back Testing & Paper Trading</li>
-      <li>Advanced Option Strategies</li>
+      <li>Day Trading Basics</li>
+      <li>Swing Trading Strategies</li>
+      <li>Futures Trading Fundamentals</li>
+      <li>Options Greeks Mastery</li>
+      <li>Covered Calls Income Generation</li>
+      <li>Vertical Spreads Deep Dive</li>
+      <li>Iron Condors &amp; Butterflies</li>
+      <li>Straddles &amp; Strangles Comparison</li>
+      <li>Advanced Chart Patterns</li>
+      <li>Fibonacci Retracements &amp; Extensions</li>
+      <li>Volume Profile &amp; VWAP Strategies</li>
+      <li>Risk Management &amp; Position Sizing</li>
+      <li>Trading Psychology &amp; Mindset</li>
+      <li>Live Trading Case Studies</li>
     </ul>
   </div>
 
-  <!-- Video Section -->
   <div class="section video-section">
     <h2>Watch Our Introduction Video</h2>
-    <div class="video-container">
-      <iframe src="https://share.descript.com/embed/9HgOLtkExUY" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    </div>
+    <iframe src="https://share.descript.com/embed/9HgOLtkExUY" allow="autoplay; encrypted-media" allowfullscreen></iframe>
   </div>
 
-  <!-- Pricing Section -->
   <div class="section pricing-section">
     <h2>Pricing & Inclusions</h2>
     <div class="tier">
       <h3>$99/Month</h3>
       <ul>
         <li>Access to the Discord community</li>
-        <li>Live trading on Monday, Wednesday & Friday (9:15 AM to 11:30 AM)</li>
+        <li>Live trading on Monday, Wednesday &amp; Friday (9:15 AM to 11:30 AM)</li>
         <li>Live alerts</li>
         <li>Weekly educational meetings on Sunday at 10AM EST</li>
         <li>Community of traders to work and grow with</li>
@@ -123,25 +98,22 @@
     </div>
   </div>
 
-  <!-- Quotes Section -->
   <div class="section quotes">
     <h2>Inspirational Quotes</h2>
-    <blockquote>"Risk comes from not knowing what you're doing."<span class="author">– Warren Buffett</span></blockquote>
-    <blockquote>"Only buy something that you'd be perfectly happy to hold if the market shut down for 10 years."<span class="author">– Warren Buffett</span></blockquote>
-    <blockquote>"The stock market is filled with individuals who know the price of everything, but the value of nothing."<span class="author">– Philip Fisher</span></blockquote>
-    <blockquote>"In investing, what is comfortable is rarely profitable."<span class="author">– Robert Arnott</span></blockquote>
-    <blockquote>"Amateurs think about how much money they can make. Professionals think about how much money they could lose."<span class="author">– Jack Schwager</span></blockquote>
-    <blockquote>"Price is what you pay. Value is what you get."<span class="author">– Warren Buffett</span></blockquote>
+    <blockquote>"Risk comes from not knowing what you're doing." – Warren Buffett</blockquote>
+    <blockquote>"Only buy something that you'd be perfectly happy to hold if the market shut down for 10 years." – Warren Buffett</blockquote>
+    <blockquote>"The stock market is filled with individuals who know the price of everything, but the value of nothing." – Philip Fisher</blockquote>
+    <blockquote>"In investing, what is comfortable is rarely profitable." – Robert Arnott</blockquote>
+    <blockquote>"Amateurs think about how much money they can make. Professionals think about how much money they could lose." – Jack Schwager</blockquote>
+    <blockquote>"Price is what you pay. Value is what you get." – Warren Buffett</blockquote>
   </div>
 
-  <!-- Facts Section -->
   <div class="section facts">
     <h2>Trading Facts</h2>
     <p>Did you know? Consistent trading and disciplined strategies can change your life by building wealth over time!</p>
     <p>Fact: Many successful investors started with just a small amount and grew it by staying committed to their trading plan.</p>
   </div>
 
-    <!-- Disclosure Section -->
   <div class="section disclosure-section">
     <h2>Important Disclosures</h2>
     <p><strong>Please read the following carefully before accessing any course materials:</strong></p>
@@ -156,18 +128,17 @@
     <p>By enrolling in this course and accessing its materials, you acknowledge and agree to the above terms. Thank you for respecting our community guidelines and helping us maintain a secure, high‑quality learning environment.</p>
   </div>
 
-  <!-- Footer -->
   <footer>
     <p>&copy; 2023 Your Trading Course. All rights reserved.</p>
-    <p><a href="https://example.com/checkout?plan=default" id="manageSubscriptionsFooter">Manage Subscriptions</a></p>
+    <p><a href="https://example.com/checkout?plan=default">Manage Subscriptions</a></p>
   </footer>
 
-  <!-- Modals & Scripts unchanged -->
   <script>
-    // (Existing JS logic remains here)
+    // Login/Register/Account modal logic remains for auth but courses always unlocked via static links
   </script>
 </body>
 </html>
+
 
 
 
