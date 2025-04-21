@@ -1,0 +1,137 @@
+// chart.js
+// This script sets up the interactive chart activity for Course 3.
+// It creates a simple candlestick chart with Chart.js, allows freehand drawing on an overlay,
+// and then uses a prompt to have the user identify the drawn chart pattern.
+// Only a correct identification will advance the activity to the next pattern.
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Define the expected patterns in order
+  const patterns = [
+    "Ascending Wedge",
+    "Descending Wedge",
+    "Descending Triangle",
+    "Ascending Triangle",
+    "Bull Flag"
+  ];
+  let currentPatternIndex = 0;
+
+  // This function updates the displayed expected pattern.
+  // (In a real challenge, you might hide this from the user.)
+  function updateExpectedPatternDisplay() {
+    // For demonstration purposes, we show it.
+    // You can choose to hide it if you prefer the user not to see the expected answer.
+    const patternDisplay = document.getElementById("pattern-name");
+    if (patternDisplay) {
+      patternDisplay.innerText = patterns[currentPatternIndex];
+    }
+  }
+  updateExpectedPatternDisplay();
+
+  // Initialize a candlestick chart using Chart.js in canvas with id "myChart"
+  const ctxChart = document.getElementById("myChart").getContext("2d");
+  const myChart = new Chart(ctxChart, {
+    type: 'candlestick',
+    data: {
+      datasets: [{
+        label: 'Historical Data',
+        data: [
+          { t: new Date('2023-01-01'), o: 100, h: 105, l: 95, c: 102 },
+          { t: new Date('2023-01-02'), o: 102, h: 108, l: 101, c: 107 },
+          { t: new Date('2023-01-03'), o: 107, h: 110, l: 103, c: 105 },
+          { t: new Date('2023-01-04'), o: 105, h: 107, l: 100, c: 102 },
+          { t: new Date('2023-01-05'), o: 102, h: 106, l: 98, c: 104 }
+        ]
+      }]
+    },
+    options: {
+      scales: {
+        x: {
+          type: 'time'
+        }
+      }
+    }
+  });
+
+  // Set up drawing functionality on the canvas with id "drawingCanvas"
+  const drawingCanvas = document.getElementById("drawingCanvas");
+  const ctx = drawingCanvas.getContext("2d");
+  let drawingEnabled = true;
+  let drawing = false;
+
+  // Ensure the drawing canvas matches the chart container's dimensions
+  const chartContainer = document.getElementById("chartContainer");
+  drawingCanvas.width = chartContainer.offsetWidth;
+  drawingCanvas.height = chartContainer.offsetHeight;
+
+  // Event listeners for drawing on the canvas
+  drawingCanvas.addEventListener("mousedown", function (e) {
+    if (drawingEnabled) {
+      drawing = true;
+      ctx.beginPath();
+      const rect = drawingCanvas.getBoundingClientRect();
+      ctx.moveTo(e.clientX - rect.left, e.clientY - rect.top);
+    }
+  });
+  drawingCanvas.addEventListener("mousemove", function (e) {
+    if (drawing && drawingEnabled) {
+      const rect = drawingCanvas.getBoundingClientRect();
+      ctx.lineTo(e.clientX - rect.left, e.clientY - rect.top);
+      ctx.stroke();
+    }
+  });
+  drawingCanvas.addEventListener("mouseup", function () {
+    drawing = false;
+  });
+  drawingCanvas.addEventListener("mouseout", function () {
+    drawing = false;
+  });
+
+  // Toggle drawing mode button (id "toggleDrawing")
+  const toggleDrawingBtn = document.getElementById("toggleDrawing");
+  toggleDrawingBtn.addEventListener("click", function () {
+    drawingEnabled = !drawingEnabled;
+    toggleDrawingBtn.innerText = "Toggle Drawing Mode (" + (drawingEnabled ? "On" : "Off") + ")";
+  });
+
+  // Clear drawings button (id "clearDrawings")
+  const clearDrawingsBtn = document.getElementById("clearDrawings");
+  clearDrawingsBtn.addEventListener("click", function () {
+    ctx.clearRect(0, 0, drawingCanvas.width, drawingCanvas.height);
+  });
+
+  // Next Pattern button (id "nextPattern") manually cycles (if needed)
+  const nextPatternBtn = document.getElementById("nextPattern");
+  nextPatternBtn.addEventListener("click", function () {
+    currentPatternIndex = (currentPatternIndex + 1) % patterns.length;
+    ctx.clearRect(0, 0, drawingCanvas.width, drawingCanvas.height);
+    updateExpectedPatternDisplay();
+    alert("Pattern advanced. Please annotate the new pattern and identify it.");
+  });
+
+  // Create or use an existing button for pattern submission (id "submitPatternBtn")
+  let submitPatternBtn = document.getElementById("submitPatternBtn");
+  if (!submitPatternBtn) {
+    submitPatternBtn = document.createElement("button");
+    submitPatternBtn.id = "submitPatternBtn";
+    submitPatternBtn.innerText = "Submit Pattern";
+    // Append the button within the interactive chart container
+    document.getElementById("interactive-chart").appendChild(submitPatternBtn);
+  }
+  submitPatternBtn.addEventListener("click", function () {
+    let userAnswer = prompt("Enter the chart pattern you identified (e.g., Ascending Wedge):");
+    if (userAnswer) {
+      if (userAnswer.trim().toLowerCase() === patterns[currentPatternIndex].toLowerCase()) {
+        alert("Correct! Moving to the next pattern.");
+        currentPatternIndex++;
+        if (currentPatternIndex >= patterns.length) {
+          alert("Congratulations! You have correctly identified all chart patterns.");
+          currentPatternIndex = 0; // Optionally reset for a new round
+        }
+        updateExpectedPatternDisplay();
+        ctx.clearRect(0, 0, drawingCanvas.width, drawingCanvas.height);
+      } else {
+        alert("Incorrect. Please review your annotations and try again.");
+      }
+    }
+  });
+});

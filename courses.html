@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trading Course - Courses Page</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+    }
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #333;
+    }
+    .flex-container {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .content {
+      width: 80%;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      flex: 1;
+    }
+    .course-title {
+      font-size: 1.8em;
+      color: #333;
+      margin-bottom: 10px;
+    }
+    .course-description {
+      font-size: 1.1em;
+      color: #555;
+      margin-bottom: 15px;
+    }
+    .course-content {
+      margin-bottom: 25px;
+    }
+    .course-content ul {
+      list-style: none;
+      padding: 0;
+    }
+    .course-content li {
+      margin: 10px 0;
+    }
+    .course-content a {
+      color: #007BFF;
+      text-decoration: none;
+    }
+    .course-content a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+      width: 100%;
+    }
+    /* Locked courses are shown in gray; unlocked ones appear normally */
+    .locked {
+      color: #ccc;
+      pointer-events: none;
+    }
+    .unlocked {
+      color: #333;
+    }
+    .quiz-passed {
+      color: green;
+      margin-top: 10px;
+    }
+    /* Quiz Container Styles */
+    .quiz-container {
+      background: #f9f9f9;
+      border: 1px solid #ddd;
+      padding: 15px;
+      margin-top: 20px;
+    }
+    .quiz-container p {
+      font-weight: bold;
+    }
+    .take-quiz-button {
+      margin-top: 15px;
+      padding: 10px 15px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <h1>Trading Mastery: A Complete 14-Course Trading Program</h1>
+  </header>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="courses.html">Courses</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <div class="flex-container">
+    <div class="content" id="course-container">
+      
+      <!-- Course 1: Introduction to Trading -->
+      <div class="course unlocked" id="course-1">
+        <h2 class="course-title unlocked">1. Introduction to Trading</h2>
+        <p class="course-description">
+          Learn the fundamentals of trading, including different markets, terminology, and basic principles.
+        </p>
+        <div class="course-content">
+          <ul>
+            <li>Video: "What is Trading?"</li>
+            <li>Link: <a href="https://share.descript.com/view/MDIEvNhv3JE" target="_blank">Beginner's Guide to Financial Markets</a></li>
+            <li>PDF: <a href="https://acrobat.adobe.com/id/urn:aaid:sc:VA6C2:27d565dc-fa08-4402-a836-265c3f71fc49" target="_blank" onclick="markPDFDownloaded(1)">Download Introduction to Trading PDF</a></li>
+          </ul>
+          <button id="take-quiz-button-1" class="take-quiz-button" onclick="showQuiz(1)" disabled>Take Quiz</button>
+          <div class="quiz-container" id="quiz-container-1" style="display: none;">
+            <form id="quiz-form-1" onsubmit="return checkQuiz(1)">
+              <p>Question 1: What is the main difference between day trading and swing trading?</p>
+              <label><input type="radio" name="q1" value="b"> Day trading involves holding positions for days to weeks, while swing trading involves buying and selling within the same trading day</label><br>
+              <label><input type="radio" name="q1" value="c"> Day trading uses only technical analysis, while swing trading uses only fundamental analysis.</label><br>
+              <label><input type="radio" name="q1" value="a"> Day trading involves buying and selling securities within the same trading day, while swing trading involves holding positions for a few days to weeks.</label><br>
+              <label><input type="radio" name="q1" value="d"> Day trading is less risky than swing trading.</label><br>
+
+              <p>Question 2: What was a significant historical development in trading in 1792?</p>
+              <label><input type="radio" name="q2" value="b"> The Chicago Board Options Exchange (CBOE) was founded.</label><br>
+              <label><input type="radio" name="q2" value="c"> The Amsterdam Stock Exchange was established.</label><br>
+              <label><input type="radio" name="q2" value="a"> The New York Stock Exchange (NYSE) was founded.</label><br>
+              <label><input type="radio" name="q2" value="d"> The first futures contracts were introduced.</label><br>
+
+              <p>Question 3: Which of the following is a key psychological challenge traders face?</p>
+              <label><input type="radio" name="q3" value="a"> Many traders quit due to the emotional rollercoaster of market ups and downs</label><br>
+              <label><input type="radio" name="q3" value="b"> The ability to cut losses and let winners run is easy.</label><br>
+              <label><input type="radio" name="q3" value="c"> Financial speculation is always profitable.</label><br>
+              <label><input type="radio" name="q3" value="d"> Emotional decision-making is not a concern in trading.</label><br>
+
+              <p>Question 4: What is one major characteristic of futures contracts?</p>
+              <label><input type="radio" name="q4" value="d"> They are used to speculate on stock movements only.</label><br>
+              <label><input type="radio" name="q4" value="c"> They only apply to bonds.</label><br>
+              <label><input type="radio" name="q4" value="b"> They are used as a safer alternative to bonds.</label><br>
+              <label><input type="radio" name="q4" value="a"> They obligate the buyer or seller to purchase or sell an asset at a predetermined price on a future date.</label><br>
+
+              <p>Question 5: Which of the following best describes an option?</p>
+              <label><input type="radio" name="q5" value="b"> A debt instrument offering fixed interest payments, typically considered a safer investment than stocks.</label><br>
+              <label><input type="radio" name="q5" value="a"> A financial contract that gives the holder the right, but not the obligation, to buy or sell an underlying asset at a predetermined price.</label><br>
+              <label><input type="radio" name="q5" value="c"> A type of futures contract used for commodities.</label><br>
+              <label><input type="radio" name="q5" value="d"> A stock that pays dividends periodically.</label><br>
+
+              <button type="submit">Submit Quiz</button>
+            </form>
+            <p class="quiz-passed" id="quiz-1-passed" style="display: none;">Quiz Passed! Course Complete.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course 2: Technical Analysis Basics -->
+      <div class="course locked" id="course-2">
+        <h2 class="course-title locked">2. Technical Analysis Basics</h2>
+        <div class="course-content">
+          <ul>
+            <li>Video: "Introduction to Technical Analysis"</li>
+            <li>Link: <a href="https://share.descript.com/view/HQTxcpM6LJY" target="_blank">Technical Analysis Tool Guide</a></li>
+            <li>Practice: Identify Patterns on Live Charts</li>
+            <li>PDF: <a href="https://acrobat.adobe.com/id/urn:aaid:sc:VA6C2:5722bb64-c3e4-4b94-9279-18e713ae555b" target="_blank" onclick="markPDFDownloaded(2)">Download Technical Analysis Basics PDF</a></li>
+          </ul>
+          <button id="take-quiz-button-2" class="take-quiz-button" onclick="showQuiz(2)" disabled>Take Quiz</button>
+          <div class="quiz-container" id="quiz-container-2" style="display: none;">
+            <form id="quiz-form-2" onsubmit="return checkQuiz(2)">
+              <p>Question 1: What does the Exponential Moving Average (EMA) give more weight to compared to the Simple Moving Average (SMA)?</p>
+              <label><input type="radio" name="q1" value="b"> The volume of trades</label><br>
+              <label><input type="radio" name="q1" value="a"> Recent prices of the asset</label><br>
+              <label><input type="radio" name="q1" value="c"> Past prices of the asset</label><br>
+              <label><input type="radio" name="q1" value="d"> The opening prices of the asset</label><br>
+
+              <p>Question 2: Which of the following Fibonacci levels is considered the most important for potential reversals?</p>
+              <label><input type="radio" name="q2" value="d"> 50%</label><br>
+              <label><input type="radio" name="q2" value="b"> 100%</label><br>
+              <label><input type="radio" name="q2" value="c"> 38.2%</label><br>
+              <label><input type="radio" name="q2" value="a"> 61.8%</label><br>
+
+              <p>Question 3: What is the primary use of the Volume Weighted Average Price (VWAP)?</p>
+              <label><input type="radio" name="q3" value="b"> To calculate the average price of an asset for the entire year</label><br>
+              <label><input type="radio" name="q3" value="a"> To execute large trades without affecting the market price too much</label><br>
+              <label><input type="radio" name="q3" value="c"> To track a stock's price movement over time</label><br>
+              <label><input type="radio" name="q3" value="d"> To determine the highest price a stock will reach</label><br>
+
+              <p>Question 4: What type of chart pattern is formed by the candlestick shape and reflects market psychology?</p>
+              <label><input type="radio" name="q4" value="b"> Moving Average</label><br>
+              <label><input type="radio" name="q4" value="a"> Candlestick Patterns</label><br>
+              <label><input type="radio" name="q4" value="c"> Bollinger Bands</label><br>
+              <label><input type="radio" name="q4" value="d"> Fibonacci Retracements</label><br>
+
+              <p>Question 5: Which of the following is a characteristic of support and resistance levels in technical analysis?</p>
+              <label><input type="radio" name="q5" value="c"> Support is where an uptrend can pause or reverse, and resistance is where a downtrend can pause or reverse.</label><br>
+              <label><input type="radio" name="q5" value="b"> Support is where the market price always rises, and resistance is where the price always falls.</label><br>
+              <label><input type="radio" name="q5" value="a"> Support is where an uptrend may reverse, and resistance is where a downtrend may reverse.</label><br>
+              <label><input type="radio" name="q5" value="d"> Support and resistance levels are not important for technical analysis.</label><br>
+
+              <button type="submit">Submit Quiz</button>
+            </form>
+            <p class="quiz-passed" id="quiz-2-passed" style="display: none;">Quiz Passed! Course Complete.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course 3: Chart Patterns & Trends (Interactive Activity Removed) -->
+      <div class="course locked" id="course-3">
+        <h2 class="course-title locked">3. Chart Patterns &amp; Trends</h2>
+        <div class="course-content">
+          <ul>
+            <li>Video: "Recognizing Key Chart Patterns"</li>
+            <li>Link: <a href="https://share.descript.com/view/EI2n6kjAO1m" target="_blank">Trend Analysis for Beginners</a></li>
+	    <li>Video: "Advanced Chart Patterns"</li>
+            <li>Link: <a href="https://share.descript.com/view/AetYyRrGahg" target="_blank">Trend Analysis for Beginners</a></li>
+            <li>PDF: <a href="https://acrobat.adobe.com/id/urn:aaid:sc:VA6C2:061bd41c-661d-4ce9-98a4-a8229de346ba" target="_blank" onclick="markPDFDownloaded(3)">Download Identifying Key Chart Patterns PDF</a></li>
+          </ul>
+        </div>
+        <button id="take-quiz-button-3" class="take-quiz-button" onclick="showQuiz(3)" disabled>Take Quiz</button>
+        <div class="quiz-container" id="quiz-container-3" style="display: none;">
+          <form id="quiz-form-3" onsubmit="return checkQuiz(3)">
+            <p>Question 1: What is a key characteristic of an Ascending Wedge pattern?</p>
+            <label><input type="radio" name="q1" value="c"> It indicates a continuation of an uptrend with no reversal expected.</label><br>
+            <label><input type="radio" name="q1" value="b"> It forms when the price shows lower highs and lower lows.</label><br>
+            <label><input type="radio" name="q1" value="a"> It converges to a single point and signals a possible reversal to the downside.</label><br>
+            <label><input type="radio" name="q1" value="d"> It only appears during high volume market conditions.</label><br>
+
+            <p>Question 2: Why is it important to recognize a Bear Flag pattern early?</p>
+            <label><input type="radio" name="q2" value="b"> It indicates the start of a strong bullish move.</label><br>
+            <label><input type="radio" name="q2" value="a"> Recognizing it early allows for entry before the rapid breakdown to the downside.</label><br>
+            <label><input type="radio" name="q2" value="c"> It guarantees that the price will continue to move sideways for a while.</label><br>
+            <label><input type="radio" name="q2" value="d"> It provides an opportunity to enter at the top of the price range.</label><br>
+
+            <p>Question 3: In a Descending Triangle pattern, when is the downtrend confirmed?</p>
+            <label><input type="radio" name="q3" value="b"> When the price moves above the upper trendline.</label><br>
+            <label><input type="radio" name="q3" value="a"> When the price breaks the lower trendline.</label><br>
+            <label><input type="radio" name="q3" value="c"> When the volume increases significantly.</label><br>
+            <label><input type="radio" name="q3" value="d"> When the price fails to break the resistance level.</label><br>
+
+            <p>Question 4: What is the primary distinction between a Descending Wedge and a Downtrend?</p>
+            <label><input type="radio" name="q4" value="b"> The Descending Wedge is formed by increasing volume, while the Downtrend is formed by decreasing volume.</label><br>
+            <label><input type="radio" name="q4" value="c"> A Descending Wedge forms after an uptrend, while a Downtrend forms after a downtrend.</label><br>
+            <label><input type="radio" name="q4" value="a"> A Descending Wedge signals a reversal to the upside, whereas a Downtrend signals continuation to the downside.</label><br>
+            <label><input type="radio" name="q4" value="d"> The Descending Wedge pattern is always confirmed by a sharp increase in price.</label><br>
+
+            <p>Question 5: What is the ideal entry point when trading a Bull Flag pattern?</p>
+            <label><input type="radio" name="q5" value="a"> Enter when the price breaks and holds the high of day (HOD).</label><br>
+            <label><input type="radio" name="q5" value="b"> Enter when the price is at the bottom of the flag, expecting a reversal.</label><br>
+            <label><input type="radio" name="q5" value="c"> Enter when the price reaches the previous low.</label><br>
+            <label><input type="radio" name="q5" value="d"> Enter when the flag pattern is still forming but no confirmation is seen.</label><br>
+
+            <button type="submit">Submit Quiz</button>
+          </form>
+          <p class="quiz-passed" id="quiz-3-passed" style="display: none;">Quiz Passed! Course Complete.</p>
+        </div>
+      </div>
+
+      <!-- Course 4: Understanding Fibonacci Retracements & Extensions -->
+      <div class="course locked" id="course-4">
+        <h2 class="course-title locked">4. Understanding Fibonacci Retracements &amp; Extensions</h2>
+        <div class="course-content">
+          <ul>
+            <li>Video: "Fibonaccis in Trading"</li>
+            <li>Link: <a href="https://share.descript.com/view/yNUpdwgxmQ4" target="_blank">Fibonacci Guide for Beginners</a></li>
+	    <li>Video: "How to Draw Your Fibonacci Retracements"</li>
+            <li>Link: <a href="https://share.descript.com/view/KDWYVweQiWA" target="_blank">Fibonacci Guide for Beginners</a></li>
+	    <li>Video: "How To Identify Your Key Levels"</li>
+            <li>Link: <a href="https://share.descript.com/view/Im4EUbBB3AP" target="_blank">Fibonacci Guide for Beginners</a></li>
+	    <li>Video: "How to Identify & Draw Your Zones"</li>
+            <li>Link: <a href="https://share.descript.com/view/9fKTkFjwp4n" target="_blank">Fibonacci Guide for Beginners</a></li>
+            <li>Interactive Exercise: Use Fibonacci to predict price movements</li>
+            <li>PDF: <a href="https://acrobat.adobe.com/id/urn:aaid:sc:VA6C2:9565c498-a400-4ec5-89cb-4098fb470cac" target="_blank" onclick="markPDFDownloaded(4)">Download Fibonacci Retracements &amp; Extensions PDF</a></li>
+          </ul>
+          <button id="take-quiz-button-4" class="take-quiz-button" onclick="showQuiz(4)" disabled>Take Quiz</button>
+          <div class="quiz-container" id="quiz-container-4" style="display: none;">
+            <form id="quiz-form-4" onsubmit="return checkQuiz(4)">
+              <p>Question 1: Why do many traders draw Fibonacci extensions in the direction of the trend?</p>
+              <label><input type="radio" name="q1" value="b"> It helps them predict where a reversal will occur, allowing them to enter at the highest point.</label><br>
+              <label><input type="radio" name="q1" value="a"> It helps them anticipate where the trend is likely to continue, allowing for a more profitable trade.</label><br>
+              <label><input type="radio" name="q1" value="c"> It helps them find entry points for counter-trend trades.</label><br>
+              <label><input type="radio" name="q1" value="d"> It is based on the idea that Fibonacci levels work better in sideways markets.</label><br>
+
+              <p>Question 2: How do you differ in your approach to drawing Fibonacci extensions compared to most traders?</p>
+              <label><input type="radio" name="q2" value="c"> You draw Fibonacci extensions in the direction of the trend as most traders do.</label><br>
+              <label><input type="radio" name="q2" value="b"> You focus on drawing Fibonacci extensions for predicting market reversals instead of continuations.</label><br>
+              <label><input type="radio" name="q2" value="a"> You draw Fibonacci extensions opposite to the direction of the trend, focusing on continuation rather than reversal.</label><br>
+              <label><input type="radio" name="q2" value="d"> You avoid using Fibonacci extensions and focus only on retracements.</label><br>
+
+              <p>Question 3: What is the primary reason you prefer trading for continuation rather than reversal?</p>
+              <label><input type="radio" name="q3" value="b"> Continuation patterns are harder to predict and offer more risk.</label><br>
+              <label><input type="radio" name="q3" value="a"> Continuation patterns provide more reliable entry points as trends are easier to spot and follow.</label><br>
+              <label><input type="radio" name="q3" value="c"> Reversal patterns provide fewer opportunities, so they are avoided in your strategy.</label><br>
+              <label><input type="radio" name="q3" value="d"> Trading continuation patterns is only effective in sideways markets.</label><br>
+
+              <p>Question 4: In what scenario would you draw Fibonacci extensions in the opposite direction of the trend?</p>
+              <label><input type="radio" name="q4" value="c"> When predicting where a trend is about to reverse.</label><br>
+              <label><input type="radio" name="q4" value="b"> When trading a market in a consolidation phase.</label><br>
+              <label><input type="radio" name="q4" value="a"> When focusing on continuation of the trend rather than reversal.</label><br>
+              <label><input type="radio" name="q4" value="d"> When the market is in a choppy phase and direction is unclear.</label><br>
+
+              <p>Question 5: Why is it important to combine Fibonacci retracements and extensions with other indicators like Moving Averages or RSI?</p>
+              <label><input type="radio" name="q5" value="a"> To confirm the analysis and improve the reliability of the trade.</label><br>
+              <label><input type="radio" name="q5" value="b"> To make sure the Fibonacci levels work in isolation without relying on external factors.</label><br>
+              <label><input type="radio" name="q5" value="c"> To increase the number of Fibonacci levels in the chart.</label><br>
+              <label><input type="radio" name="q5" value="d"> To avoid using any other indicators in the market.</label><br>
+
+              <button type="submit">Submit Quiz</button>
+            </form>
+            <p class="quiz-passed" id="quiz-4-passed" style="display: none;">Quiz Passed! Course Complete.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course 5: Risk Management & Position Sizing -->
+      <div class="course locked" id="course-5">
+        <h2 class="course-title locked">5. Risk Management &amp; Position Sizing</h2>
+        <div class="course-content">
+          <ul>
+            <li>Video: "Managing Risk Effectively"</li>
+            <li>Link: <a href="https://share.descript.com/view/XX53s69rgar" target="_blank">Position Sizing Strategies</a></li>
+            <li>Exercise: Calculate Your Position Size for Trades</li>
+            <li>PDF: <a href="https://acrobat.adobe.com/id/urn:aaid:sc:VA6C2:a194f86a-10e5-4527-9851-68785aeb9ddd" target="_blank" onclick="markPDFDownloaded(5)">Download Risk Management &amp; Position Sizing PDF</a></li>
+          </ul>
+          <button id="take-quiz-button-5" class="take-quiz-button" onclick="showQuiz(5)" disabled>Take Quiz</button>
+          <div class="quiz-container" id="quiz-container-5" style="display: none;">
+            <form id="quiz-form-5" onsubmit="return checkQuiz(5)">
+              <p>Question 1: What is the primary benefit of using a scaling out strategy in trading?</p>
+              <label><input type="radio" name="q1" value="b"> It allows traders to avoid using stop-loss orders.</label><br>
+              <label><input type="radio" name="q1" value="a"> It allows traders to lock in partial profits as the market moves in their favor, reducing emotional stress.</label><br>
+              <label><input type="radio" name="q1" value="c"> It increases potential profits by holding all positions until the final target is reached.</label><br>
+              <label><input type="radio" name="q1" value="d"> It helps traders take a larger position size without increasing risk.</label><br>
+
+              <p>Question 2: When should a trader set a stop loss at a trend failure point?</p>
+              <label><input type="radio" name="q2" value="c"> When the price is near a point where the trend may reverse, indicating a change in direction.</label><br>
+              <label><input type="radio" name="q2" value="b"> When the price has moved too far in the opposite direction of the trade.</label><br>
+              <label><input type="radio" name="q2" value="a"> When the price is near a key resistance level.</label><br>
+              <label><input type="radio" name="q2" value="d"> When the trader is confident that the market will continue in their favor.</label><br>
+
+              <p>Question 3: What should be done when you have medium to low confidence in a trade, according to the document?</p>
+              <label><input type="radio" name="q3" value="b"> Increase the position size to maximize profit potential.</label><br>
+              <label><input type="radio" name="q3" value="a"> Cut the position size in half to mitigate risk.</label><br>
+              <label><input type="radio" name="q3" value="c"> Take the trade regardless of the confidence level, as the potential for reward is higher.</label><br>
+              <label><input type="radio" name="q3" value="d"> Avoid setting a stop loss and let the market determine the outcome.</label><br>
+
+              <p>Question 4: According to the document, what is the recommended maximum percentage of your account to risk on a high-confidence short-term day trade (with 1-4 weeks expiration)?</p>
+              <label><input type="radio" name="q4" value="a"> 8-10% of your account</label><br>
+              <label><input type="radio" name="q4" value="b"> 5-8% of your account</label><br>
+              <label><input type="radio" name="q4" value="c"> 12-15% of your account</label><br>
+              <label><input type="radio" name="q4" value="d"> 20-25% of your account</label><br>
+
+              <p>Question 5: Which of the following is NOT a recommended risk management strategy in the document?</p>
+              <label><input type="radio" name="q5" value="c"> Diversifying your trades across different assets or sectors to reduce risk.</label><br>
+              <label><input type="radio" name="q5" value="b"> Setting a trailing stop to lock in profits as the market moves in your favor.</label><br>
+              <label><input type="radio" name="q5" value="a"> Taking a high-risk position to maximize profits in volatile markets.</label><br>
+              <label><input type="radio" name="q5" value="d"> Using a clear, defined trading plan with entry, target, and stop loss levels.</label><br>
+
+              <button type="submit">Submit Quiz</button>
+            </form>
+            <p class="quiz-passed" id="quiz-5-passed" style="display: none;">Quiz Passed! Course Complete.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course 6: Technical Indicators & Tools -->
+      <div class="course locked" id="course-6">
+        <h2 class="course-title locked">6. Technical Indicators &amp; Tools</h2>
+        <div class="course-content">
+          <ul>
+            <li>Video: "Using Moving Averages and RSI"</li>
+            <li>Link: <a href="https://share.descript.com/view/6njr2L0YFJu" target="_blank">Technical Indicators Explained</a></li>
+	    <li>Link: <a href="https://share.descript.com/view/S72d5x89jn1" target="_blank">Backtesting Strategies</a></li>
+	    <li>Link: <a href="https://share.descript.com/view/58fn1lMNo1V" target="_blank">Backtesting Strategies</a></li>
+            <li>PDF: <a href="https://acrobat.adobe.com/id/urn:aaid:sc:VA6C2:75bc977f-493f-4ae3-a603-200e6df287ea" target="_blank" onclick="markPDFDownloaded(6)">Download Technical Indicators PDF</a></li>
+          </ul>
+          <button id="take-quiz-button-6" class="take-quiz-button" onclick="showQuiz(6)" disabled>Take Quiz</button>
+          <div class="quiz-container" id="quiz-container-6" style="display: none;">
+            <form id="quiz-form-6" onsubmit="return checkQuiz(6)">
+              <p>Question 1: What is the primary use of the 200 EMA in trading?</p>
+              <label><input type="radio" name="q1" value="c"> It helps to identify short-term market trends.</label><br>
+              <label><input type="radio" name="q1" value="b"> It provides a key level for determining the market’s medium-term trend.</label><br>
+              <label><input type="radio" name="q1" value="a"> It defines the long-term market trend, with a price above it considered bullish.</label><br>
+              <label><input type="radio" name="q1" value="d"> It provides short-term buy and sell signals based on volume.</label><br>
+
+              <p>Question 2: How does the VWAP help traders assess the value of a stock during the trading day?</p>
+              <label><input type="radio" name="q2" value="b"> It helps traders identify short-term overbought and oversold conditions based on price fluctuations.</label><br>
+              <label><input type="radio" name="q2" value="a"> It calculates the average price over the day, weighted by volume, to determine whether the current price is overbought or oversold.</label><br>
+              <label><input type="radio" name="q2" value="c"> It provides a historical view of past price movements and indicates future price direction.</label><br>
+              <label><input type="radio" name="q2" value="d"> It calculates support and resistance levels by averaging price data.</label><br>
+
+              <p>Question 3: What is the primary use of the Relative Strength Index (RSI)?</p>
+              <label><input type="radio" name="q3" value="b"> To identify the strength of the trend based on moving averages.</label><br>
+              <label><input type="radio" name="q3" value="a"> To measure the momentum of price and identify overbought or oversold conditions.</label><br>
+              <label><input type="radio" name="q3" value="c"> To confirm volume trends during uptrends and downtrends</label><br>
+              <label><input type="radio" name="q3" value="d"> To predict market reversals based on historical price action.</label><br>
+
+              <p>Question 4: What does the Stochastic Oscillator measure in the context of technical analysis?</p>
+              <label><input type="radio" name="q4" value="b"> The volatility of price movements in a trend.</label><br>
+              <label><input type="radio" name="q4" value="a"> The momentum of price by comparing the closing price to its range over a set period.</label><br>
+              <label><input type="radio" name="q4" value="c"> The volume traded at each price level over a set period.</label><br>
+              <label><input type="radio" name="q4" value="d"> The strength of the current price trend based on moving averages.</label><br>
+
+              <p>Question 5: How can the Ichimoku Cloud be used to determine the market trend?</p>
+              <label><input type="radio" name="q5" value="a"> The cloud shows areas of support and resistance, with the trend being bullish when the price is above the cloud.</label><br>
+              <label><input type="radio" name="q5" value="b"> If the price is above the cloud, it signals a bearish trend.</label><br>
+              <label><input type="radio" name="q5" value="c"> If the price is below the cloud, it signals a neutral market condition.</label><br>
+              <label><input type="radio" name="q5" value="d"> The cloud indicates overbought or oversold conditions based on price and volume.</label><br>
+
+              <button type="submit">Submit Quiz</button>
+            </form>
+            <p class="quiz-passed" id="quiz-6-passed" style="display: none;">Quiz Passed! Course Complete.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course 7: Options Vs. Common Stock -->
+      <div class="course locked" id="course-7">
+        <h2 class="course-title locked">7. Options Vs. Common Stock</h2>
+        <div class="course-content">
+          <ul>
+            <li>Video: "Basic Options Strategies"</li>
+            <li>Link: <a href="https://share.descript.com/view/xB46S30YO5s" target="_blank">Options for Beginners</a></li>
+            <li>Video: "How I set up my Trading Account Page"</li>
+            <li>Link: <a href="https://share.descript.com/view/dgO2zR7OfB4" target="_blank">Options for Beginners</a></li>
+            <li>PDF: <a href="https://acrobat.adobe.com/id/urn:aaid:sc:VA6C2:16133682-5955-4268-89c5-b5a0a1185b40" target="_blank" onclick="markPDFDownloaded(7)">Download Options Vs. Common Stock PDF</a></li>
+          </ul>
+          <button id="take-quiz-button-7" class="take-quiz-button" onclick="showQuiz(7)" disabled>Take Quiz</button>
+          <div class="quiz-container" id="quiz-container-7" style="display: none;">
+            <form id="quiz-form-7" onsubmit="return checkQuiz(7)">
+              <p>Question 1: In the context of options, how does leverage impact profit potential?</p>
+              <label><input type="radio" name="q1" value="b"> Leverage decreases the potential for profit by increasing the amount of capital required to enter a trade.</label><br>
+              <label><input type="radio" name="q1" value="a"> Leverage increases the potential for profit by allowing traders to control a larger number of shares with a smaller investment.</label><br>
+              <label><input type="radio" name="q1" value="c"> Leverage ensures guaranteed profits, as options always perform better than stocks.</label><br>
+              <label><input type="radio" name="q1" value="d"> Leverage does not impact profit potential, as options always offer fixed returns.</label><br>
+
+              <p>Question 2: Why are options considered more flexible than stocks in terms of trading strategies?</p>
+              <label><input type="radio" name="q2" value="a"> Stocks only allow for long trades, while options offer more advanced strategies such as covered calls and protective puts.</label><br>
+              <label><input type="radio" name="q2" value="b"> Options can be traded only in a bullish market, while stocks can be traded in any market condition.</label><br>
+              <label><input type="radio" name="q2" value="c"> Options allow traders to control stock positions indefinitely, unlike stocks which are fixed at a set amount.</label><br>
+              <label><input type="radio" name="q2" value="d"> Options have unlimited profit potential, while stocks have fixed limits based on the company’s performance.</label><br>
+
+              <p>Question 3: How do the risk characteristics of stocks compare to options?</p>
+              <label><input type="radio" name="q3" value="a"> Stocks have unlimited potential for loss, whereas options have limited loss potential defined by the premium paid.</label><br>
+              <label><input type="radio" name="q3" value="b"> Stocks have fixed profit potential, while options offer greater profit potential but come with higher risk due to expiration.</label><br>
+              <label><input type="radio" name="q3" value="c"> Stocks have no risk involved, but options come with significant risk if held for too long.</label><br>
+              <label><input type="radio" name="q3" value="d"> Both stocks and options have equal risk and profit potential, depending on the market conditions.</label><br>
+
+              <p>Question 4: Why might a trader prefer trading options over stocks when the market is volatile?</p>
+              <label><input type="radio" name="q4" value="a"> Options allow traders to profit from both upward and downward price movements, providing greater flexibility in volatile markets.</label><br>
+              <label><input type="radio" name="q4" value="b"> Stocks can only profit from upward movements, while options are less sensitive to volatility.</label><br>
+              <label><input type="radio" name="q4" value="c"> Options require less capital to trade, reducing the financial risk involved in volatile conditions.</label><br>
+              <label><input type="radio" name="q4" value="d"> Options are less affected by market volatility compared to stocks, ensuring steadier returns.</label><br>
+
+              <p>Question 5: What is a key disadvantage of options when compared to stocks?</p>
+              <label><input type="radio" name="q5" value="d"> Options are typically less liquid than stocks, making it harder to enter and exit positions.</label><br>
+              <label><input type="radio" name="q5" value="b"> Options can only be traded during market hours, unlike stocks which can be traded after hours.</label><br>
+              <label><input type="radio" name="q5" value="c"> Options are less complex and easier to understand than stocks, making them more suitable for novice traders.</label><br>
+              <label><input type="radio" name="q5" value="a"> Options have a time decay factor, meaning their value decreases over time as expiration approaches, whereas stocks can be held indefinitely.</label><br>
+
+              <button type="submit">Submit Quiz</button>
+            </form>
+            <p class="quiz-passed" id="quiz-7-passed" style="display: none;">Quiz Passed! Course Complete.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course 8: Fundamental Analysis For Traders -->
+      <div class="course locked" id="course-8">
+        <h2 class="course-title locked">8. Fundamental Analysis For Traders</h2>
+        <div class="course-content">
+          <ul>
+            <li>Video: "Analyzing Earnings Reports"</li>
+            <li>Link: <a href="https://share.descript.com/view/gIX1Lasa2Ec" target="_blank">Fundamental Analysis in Trading</a></li>
+            <li>PDF: <a href="https://acrobat.adobe.com/id/urn:aaid:sc:VA6C2:b6d5fe30-a707-454d-b514-83995947885e" target="_blank" onclick="markPDFDownloaded(8)">Download Fundamental Analysis PDF</a></li>
+          </ul>
+          <button id="take-quiz-button-8" class="take-quiz-button" onclick="showQuiz(8)" disabled>Take Quiz</button>
+          <div class="quiz-container" id="quiz-container-8" style="display: none;">
+            <form id="quiz-form-8" onsubmit="return checkQuiz(8)">
+              <p>Question 1: When analyzing GDP (Gross Domestic Product), how does a growing GDP generally impact stock prices?</p>
+              <label><input type="radio" name="q1" value="b"> It signals an economic slowdown, leading to declining stock prices.</label><br>
+              <label><input type="radio" name="q1" value="a"> It suggests strong economic growth, which can positively impact stock prices.</label><br>
+              <label><input type="radio" name="q1" value="c"> It has no significant impact on stock prices since GDP is unrelated to stock performance.</label><br>
+              <label><input type="radio" name="q1" value="d"> It directly causes inflation, which typically depresses stock prices.</label><br>
+
+              <p>Question 2: How does a high debt-to-equity ratio affect a company’s financial stability, according to fundamental analysis?</p>
+              <label><input type="radio" name="q2" value="b"> It suggests the company has a low risk of bankruptcy, as debt is minimal.</label><br>
+              <label><input type="radio" name="q2" value="a"> It indicates a company may be over-leveraged, which can increase financial risk during economic downturns.</label><br>
+              <label><input type="radio" name="q2" value="c"> It shows that the company is highly profitable, with a strong ability to pay off debt.</label><br>
+              <label><input type="radio" name="q2" value="d"> It has no significant effect on the company’s risk since it’s unrelated to market conditions.</label><br>
+
+              <p>Question 3: In the context of volume analysis, what does high volume at the start of a trading day typically indicate?</p>
+              <label><input type="radio" name="q3" value="d"> The trend is weak and will likely reverse, so it’s best to avoid taking any positions.</label><br>
+              <label><input type="radio" name="q3" value="b"> The market is likely in a neutral phase, and traders should wait for further confirmation.</label><br>
+              <label><input type="radio" name="q3" value="c"> The market is overbought or oversold, signaling that it’s time to exit positions.</label><br>
+              <label><input type="radio" name="q3" value="a"> A price movement may have strong momentum, providing an opportunity for traders to enter positions with confidence.</label><br>
+
+              <p>Question 4: Why are trade wars and tariffs considered significant risks in fundamental analysis?</p>
+              <label><input type="radio" name="q4" value="c"> They create short-term volatility but have no lasting impact on markets.</label><br>
+              <label><input type="radio" name="q4" value="b"> They are typically short-lived and do not influence long-term market trends.</label><br>
+              <label><input type="radio" name="q4" value="a"> They can disrupt international trade, impacting industries that rely on imports and exports, causing commodity and stock price fluctuations.</label><br>
+              <label><input type="radio" name="q4" value="d"> They primarily affect currency markets and have little impact on other asset classes.</label><br>
+
+              <p>Question 5: How does investor sentiment affect market behavior and asset prices, according to the document?</p>
+              <label><input type="radio" name="q5" value="b"> It only impacts currency markets, with no significant effect on stock prices.</label><br>
+              <label><input type="radio" name="q5" value="a"> During times of optimism, prices tend to rise, while fear or uncertainty can lead to downward pressure on prices.</label><br>
+              <label><input type="radio" name="q5" value="c"> It directly affects the economy and GDP, influencing stock prices in a predictable manner.</label><br>
+              <label><input type="radio" name="q5" value="d"> It does not play a role in short-term market fluctuations, as long-term economic data outweighs sentiment.</label><br>
+
+              <button type="submit">Submit Quiz</button>
+            </form>
+            <p class="quiz-passed" id="quiz-8-passed" style="display: none;">Quiz Passed! Course Complete.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course 9: Understanding Greeks In Options -->
+      <div class="course locked" id="course-9">
+        <h2 class="course-title locked">9. Understanding Greeks In Options</h2>
+        <div class="course-content">
+          <ul>
+            <li>Video: "Delta, Gamma and Theta Explained"</li>
+            <li>Link: <a href="https://share.descript.com/view/EU2JiLdrJps" target="_blank">Greeks in Trading</a></li>
+            <li>PDF: <a href="https://acrobat.adobe.com/id/urn:aaid:sc:VA6C2:138dd24b-39df-4099-abee-4f8bae3a5115" target="_blank" onclick="markPDFDownloaded(9)">Download Greeks In Options PDF</a></li>
+          </ul>
+          <button id="take-quiz-button-9" class="take-quiz-button" onclick="showQuiz(9)" disabled>Take Quiz</button>
+          <div class="quiz-container" id="quiz-container-9" style="display: none;">
+            <form id="quiz-form-9" onsubmit="return checkQuiz(9)">
+              <p>Question 1: What does Delta measure in options trading?</p>
+              <label><input type="radio" name="q1" value="c"> How much the stock price changes in a given period</label><br>
+              <label><input type="radio" name="q1" value="b"> The impact of time decay on an option’s premium</label><br>
+              <label><input type="radio" name="q1" value="a"> The rate of change between the option’s price and a $1 move in the stock</label><br>
+              <label><input type="radio" name="q1" value="d"> The volatility of the stock over time</label><br>
+
+              <p>Question 2: Why is Gamma important when trading options?</p>
+              <label><input type="radio" name="q2" value="b"> It helps determine how fast an option’s price will decay over time</label><br>
+              <label><input type="radio" name="q2" value="a"> It measures the rate at which Delta changes as the stock price moves</label><br>
+              <label><input type="radio" name="q2" value="c"> It calculates how much an option will increase in value when Theta is high</label><br>
+              <label><input type="radio" name="q2" value="d"> It only applies to out-of-the-money options and does not impact ITM contracts</label><br>
+
+              <p>Question 3: How does Theta affect an option’s value?</p>
+              <label><input type="radio" name="q3" value="c"> It increases the option's value the closer it gets to expiration</label><br>
+              <label><input type="radio" name="q3" value="b"> It determines the likelihood that an option will finish in-the-money</label><br>
+              <label><input type="radio" name="q3" value="a"> It measures the rate at which an option's price decays as time passes</label><br>
+              <label><input type="radio" name="q3" value="d"> It tracks how volatility affects the underlying stock's price.</label><br>
+
+              <p>Question 4: What happens when you buy an option contract that is too far out in expiration?</p>
+              <label><input type="radio" name="q4" value="b"> Theta decay is significantly reduced, making it a safer trade</label><br>
+              <label><input type="radio" name="q4" value="a"> The Delta is lower, meaning the price moves less in response to stock movement</label><br>
+              <label><input type="radio" name="q4" value="c"> Gamma increases, making the option more profitable in the short term</label><br>
+              <label><input type="radio" name="q4" value="d"> The contract price remains the same regardless of stock price movement</label><br>
+
+              <p>Question 5: If an option has a Delta of 0.40 and a Gamma of 0.05, what happens when the stock moves up by $1?</p>
+              <label><input type="radio" name="q5" value="a"> The new Delta becomes 0.45, increasing the option’s price movement potential</label><br>
+              <label><input type="radio" name="q5" value="b"> The Gamma will increase by 0.05, making the option more expensive</label><br>
+              <label><input type="radio" name="q5" value="c"> The Delta will stay at 0.40 because Gamma only applies to out-of-the-money options</label><br>
+              <label><input type="radio" name="q5" value="d"> The option price remains unchanged unless Theta also increases</label><br>
+
+              <button type="submit">Submit Quiz</button>
+            </form>
+            <p class="quiz-passed" id="quiz-9-passed" style="display: none;">Quiz Passed! Course Complete.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course 10: Trading Psychology -->
+      <div class="course locked" id="course-10">
+        <h2 class="course-title locked">10. Trading Psychology</h2>
+        <div class="course-content">
+          <ul>
+            <li>Video: "The Mindset of a Successful Trader"</li>
+            <li>Link: <a href="https://share.descript.com/view/u3qVB4gN5Ud" target="_blank">Mastering Trading Psychology</a></li>
+            <li>PDF: <a href="https://acrobat.adobe.com/id/urn:aaid:sc:VA6C2:ce5269a6-1481-4787-914b-bfa45ea225e3" target="_blank" onclick="markPDFDownloaded(10)">Download Trading Psychology PDF</a></li>
+          </ul>
+          <button id="take-quiz-button-10" class="take-quiz-button" onclick="showQuiz(10)" disabled>Take Quiz</button>
+          <div class="quiz-container" id="quiz-container-10" style="display: none;">
+            <form id="quiz-form-10" onsubmit="return checkQuiz(10)">
+              <p>Question 1: What is the most important factor for long-term success in trading?</p>
+              <label><input type="radio" name="q1" value="b"> Learning every possible technical indicator</label><br>
+              <label><input type="radio" name="q1" value="a"> Mastering trading psychology and emotional control</label><br>
+              <label><input type="radio" name="q1" value="c"> Watching market news 24/7</label><br>
+              <label><input type="radio" name="q1" value="d"> Trading with higher leverage to maximize returns</label><br>
+
+              <p>Question 2: Why is discipline considered the key to profitability in trading?</p>
+              <label><input type="radio" name="q2" value="a"> It ensures that traders follow risk management rules and avoid emotional decisions</label><br>
+              <label><input type="radio" name="q2" value="b"> It guarantees that every trade will be profitable</label><br>
+              <label><input type="radio" name="q2" value="c"> It allows traders to predict exactly where the market will go</label><br>
+              <label><input type="radio" name="q2" value="d"> It helps traders avoid losses altogether</label><br>
+
+              <p>Question 3: How does regular exercise contribute to trading success?</p>
+              <label><input type="radio" name="q3" value="b"> It helps build physical strength, which is needed for long trading sessions</label><br>
+              <label><input type="radio" name="q3" value="a"> It strengthens mental resilience, reduces stress, and enhances focus</label><br>
+              <label><input type="radio" name="q3" value="c"> It has no impact on trading performance</label><br>
+              <label><input type="radio" name="q3" value="d"> It makes traders react more impulsively due to high adrenaline levels</label><br>
+
+              <p>Question 4: What is a common psychological mistake that can lead to unnecessary losses?</p>
+              <label><input type="radio" name="q4" value="c"> Trading only after extensive backtesting</label><br>
+              <label><input type="radio" name="q4" value="b"> Following a structured daily routine</label><br>
+              <label><input type="radio" name="q4" value="a"> Revenge trading after taking a loss</label><br>
+              <label><input type="radio" name="q4" value="d"> Journaling every trade for self-review</label><br>
+
+              <p>Question 5: What is the best way to build patience in trading?</p>
+              <label><input type="radio" name="q5" value="b"> Always be in a trade to feel engaged in the market</label><br>
+              <label><input type="radio" name="q5" value="a"> Cultivate patience outside of trading by practicing mindfulness, chess, or puzzles</label><br>
+              <label><input type="radio" name="q5" value="c"> Take impulsive trades just to stay active</label><br>
+              <label><input type="radio" name="q5" value="d"> Increase risk so you don’t have to wait for smaller gains</label><br>
+
+              <button type="submit">Submit Quiz</button>
+            </form>
+            <p class="quiz-passed" id="quiz-10-passed" style="display: none;">Quiz Passed! Course Complete.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course 11: Using Leverage Safely -->
+      <div class="course locked" id="course-11">
+        <h2 class="course-title locked">11. Using Leverage Safely</h2>
+        <div class="course-content">
+          <ul>
+            <li>Video: "Understanding Leverage and Margin - Part 1"</li>
+            <li>Link: <a href="https://share.descript.com/view/ZJ8T4HG7F9Q" target="_blank">Leverage Explained</a></li>
+	    <li>Video: "Understanding Leverage and Margin - Part 2"</li>
+            <li>Link: <a href="https://share.descript.com/view/IJfZuBGtp4J" target="_blank">Leverage Explained</a></li>
+            <li>PDF: <a href="https://acrobat.adobe.com/id/urn:aaid:sc:VA6C2:693bd2be-5ef4-4751-9db5-005b02a22559" target="_blank" onclick="markPDFDownloaded(11)">Download Using Leverage Safely PDF</a></li>
+          </ul>
+          <button id="take-quiz-button-11" class="take-quiz-button" onclick="showQuiz(11)" disabled>Take Quiz</button>
+          <div class="quiz-container" id="quiz-container-11" style="display: none;">
+            <form id="quiz-form-11" onsubmit="return checkQuiz(11)">
+              <p>Question 1: What is the biggest risk of using leverage in trading?</p>
+              <label><input type="radio" name="q1" value="c"> It increases profit potential significantly</label><br>
+              <label><input type="radio" name="q1" value="b"> It allows traders to control larger positions</label><br>
+              <label><input type="radio" name="q1" value="a"> It can cause massive losses if misused</label><br>
+              <label><input type="radio" name="q1" value="d"> It makes trading risk-free</label><br>
+
+              <p>Question 2: Which of the following is NOT a recommended principle for using leverage safely?</p>
+              <label><input type="radio" name="q2" value="c"> Using stop-loss orders</label><br>
+              <label><input type="radio" name="q2" value="b"> Never risking more than 1-2% of capital per trade</label><br>
+              <label><input type="radio" name="q2" value="a"> Holding high-leverage trades overnight</label><br>
+              <label><input type="radio" name="q2" value="d"> Trading with a clear plan</label><br>
+
+              <p>Question 3: Why is leverage risky?</p>
+              <label><input type="radio" name="q3" value="b"> Brokers charge extra fees for overnight positions</label><br>
+              <label><input type="radio" name="q3" value="a"> Markets can gap significantly, leading to margin calls</label><br>
+              <label><input type="radio" name="q3" value="c"> It reduces the potential for profits</label><br>
+              <label><input type="radio" name="q3" value="d"> It automatically closes positions at midnight</label><br>
+
+              <p>Question 4: What does a margin call mean in leveraged trading?</p>
+              <label><input type="radio" name="q4" value="b"> Your broker is offering you a better trade opportunity</label><br>
+              <label><input type="radio" name="q4" value="a"> Your account equity has dropped too low, and you must deposit more funds</label><br>
+              <label><input type="radio" name="q4" value="c"> You have successfully doubled your trading position</label><br>
+              <label><input type="radio" name="q4" value="d"> Your trade is locked in for 24 hours</label><br>
+
+              <p>Question 5: Which of these is a common mistake traders make when using leverage?</p>
+              <label><input type="radio" name="q5" value="a"> Ignoring margin requirements</label><br>
+              <label><input type="radio" name="q5" value="b"> Gradually increasing leverage as experience grows</label><br>
+              <label><input type="radio" name="q5" value="c"> Sticking to a strict trading plan</label><br>
+              <label><input type="radio" name="q5" value="d"> Using leverage only with proper risk management</label><br>
+
+              <button type="submit">Submit Quiz</button>
+            </form>
+            <p class="quiz-passed" id="quiz-11-passed" style="display: none;">Quiz Passed! Course Complete.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course 12: Creating a Trading Plan -->
+      <div class="course locked" id="course-12">
+        <h2 class="course-title locked">12. Creating a Trading Plan</h2>
+        <div class="course-content">
+          <ul>
+            <li>Video: "Building a Robust Trading Plan"</li>
+            <li>Link: <a href="https://share.descript.com/view/NVTabMXaaJp" target="_blank">Your Trading Plan Template</a></li>
+	    <li>Link: <a href="https://share.descript.com/view/XH1i0OnhDJ4" target="_blank">Backtesting Strategies</a></li>
+            <li>Exercise: Draft Your Own Trading Plan</li>
+            <li>PDF: <a href="https://acrobat.adobe.com/id/urn:aaid:sc:VA6C2:3038870d-8f2b-4f9e-b372-c27c4c9fc37e" target="_blank" onclick="markPDFDownloaded(12)">Download Trading Plan PDF</a></li>
+          </ul>
+          <button id="take-quiz-button-12" class="take-quiz-button" onclick="showQuiz(12)" disabled>Take Quiz</button>
+          <div class="quiz-container" id="quiz-container-12" style="display: none;">
+            <form id="quiz-form-12" onsubmit="return checkQuiz(12)">
+              <p>Question 1: What’s the first thing you should check when making your daily watchlist?</p>
+              <label><input type="radio" name="q1" value="b"> Premarket movement</label><br>
+              <label><input type="radio" name="q1" value="a"> Market catalysts like news, earnings, and economic reports</label><br>
+              <label><input type="radio" name="q1" value="c"> Options flow analysis</label><br>
+              <label><input type="radio" name="q1" value="d"> Trendline breaks</label><br>
+
+              <p>Question 2: When should you consider NOT entering a trade?</p>
+              <label><input type="radio" name="q2" value="a"> When there are more than two convictions against your setup</label><br>
+              <label><input type="radio" name="q2" value="b"> If the stock has high volume</label><br>
+              <label><input type="radio" name="q2" value="c"> When price is holding above key indicators</label><br>
+              <label><input type="radio" name="q2" value="d"> If the trade is a cup &amp; handle pattern</label><br>
+
+              <p>Question 3: What is a key part of the trade entry checklist?</p>
+              <label><input type="radio" name="q3" value="b"> Entering a trade based on gut feeling</label><br>
+              <label><input type="radio" name="q3" value="a"> Ensuring you have at least three convictions in your favor</label><br>
+              <label><input type="radio" name="q3" value="c"> Ignoring key resistance levels</label><br>
+              <label><input type="radio" name="q3" value="d"> Following the first trade alert you see</label><br>
+
+              <p>Question 4: Why is a structured approach to trading important?</p>
+              <label><input type="radio" name="q4" value="c"> It helps eliminate losses completely</label><br>
+              <label><input type="radio" name="q4" value="b"> It guarantees every trade will be profitable</label><br>
+              <label><input type="radio" name="q4" value="a"> It increases your probability of success and reduces unnecessary risks</label><br>
+              <label><input type="radio" name="q4" value="d"> It makes trading effortless</label><br>
+
+              <p>Question 5: In the Apple cup-and-handle pattern example, why was the trade considered high probability?</p>
+              <label><input type="radio" name="q5" value="a"> The stock had multiple convictions in favor and no convictions against it</label><br>
+              <label><input type="radio" name="q5" value="b"> The stock had high options flow activity</label><br>
+              <label><input type="radio" name="q5" value="c"> The pattern formed but lacked confirmation</label><br>
+              <label><input type="radio" name="q5" value="d"> The trendline held, preventing a breakout</label><br>
+
+              <button type="submit">Submit Quiz</button>
+            </form>
+            <p class="quiz-passed" id="quiz-12-passed" style="display: none;">Quiz Passed! Course Complete.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course 13: Back Testing & Paper Trading -->
+      <div class="course locked" id="course-13">
+        <h2 class="course-title locked">13. Back Testing &amp; Paper Trading</h2>
+        <div class="course-content">
+          <ul>
+            <li>Video: "How to Backtest Your Trading Strategy"</li>
+            <li>Link: <a href="https://share.descript.com/view/XH1i0OnhDJ4" target="_blank">Backtesting Strategies</a></li>
+	    <li>Exercise: Backtest Your Strategy Using Historical Data</li>
+            <li>PDF: <a href="https://acrobat.adobe.com/id/urn:aaid:sc:VA6C2:cd003e66-bc74-446a-988f-48ccb2dce489" target="_blank" onclick="markPDFDownloaded(13)">Download Back Testing &amp; Paper Trading PDF</a></li>
+          </ul>
+          <button id="take-quiz-button-13" class="take-quiz-button" onclick="showQuiz(13)" disabled>Take Quiz</button>
+          <div class="quiz-container" id="quiz-container-13" style="display: none;">
+            <form id="quiz-form-13" onsubmit="return checkQuiz(13)">
+              <p>Question 1: What is the main goal of back testing?</p>
+              <label><input type="radio" name="q1" value="c"> To predict future market movements with 100% accuracy</label><br>
+              <label><input type="radio" name="q1" value="b"> To ensure a trading strategy will always be profitable</label><br>
+              <label><input type="radio" name="q1" value="a"> To determine if a strategy has a consistent edge before using it in live trading</label><br>
+              <label><input type="radio" name="q1" value="d"> To practice placing trades in real-time market environments</label><br>
+
+              <p>Question 2: Which of the following is a common mistake traders make when back testing?</p>
+              <label><input type="radio" name="q2" value="b"> Using historical data to evaluate a strategy</label><br>
+              <label><input type="radio" name="q2" value="a"> Ignoring market conditions and assuming one strategy works in all environments</label><br>
+              <label><input type="radio" name="q2" value="c"> Analyzing key metrics like win rate and drawdowns</label><br>
+              <label><input type="radio" name="q2" value="d"> Refining and optimizing the strategy based on performance</label><br>
+
+              <p>Question 3: What is the biggest difference between back testing and paper trading?</p>
+              <label><input type="radio" name="q3" value="b"> Back testing uses real money, while paper trading does not</label><br>
+              <label><input type="radio" name="q3" value="a"> Back testing applies a strategy to historical data, while paper trading tests a strategy in real-time</label><br>
+              <label><input type="radio" name="q3" value="c"> Paper trading requires a trading log, but back testing does not</label><br>
+              <label><input type="radio" name="q3" value="d"> Paper trading is only useful for professional traders</label><br>
+
+              <p>Question 4: Which of the following is not a benefit of keeping a trade log?</p>
+              <label><input type="radio" name="q4" value="c"> Helps track progress and improve discipline</label><br>
+              <label><input type="radio" name="q4" value="b"> Identifies weak spots in trading decisions</label><br>
+              <label><input type="radio" name="q4" value="a"> Guarantees every trade will be a winner</label><br>
+              <label><input type="radio" name="q4" value="d"> Reinforces consistency by ensuring trades follow a strategy</label><br>
+
+              <p>Question 5: Why is it important to transition from paper trading to live trading?</p>
+              <label><input type="radio" name="q5" value="a"> Paper trading doesn’t account for real emotions like fear and greed</label><br>
+              <label><input type="radio" name="q5" value="b"> Paper trading results are always different from live trading</label><br>
+              <label><input type="radio" name="q5" value="c"> Paper trading doesn’t allow you to use stop losses</label><br>
+              <label><input type="radio" name="q5" value="d"> Paper trading can only be done for a limited time before it expires</label><br>
+
+              <button type="submit">Submit Quiz</button>
+            </form>
+            <p class="quiz-passed" id="quiz-13-passed" style="display: none;">Quiz Passed! Course Complete.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course 14: Advanced Option Strategies -->
+      <div class="course locked" id="course-14">
+        <h2 class="course-title locked">14. Advanced Option Strategies</h2>
+        <div class="course-content">
+          <ul>
+            <li>Video: "Advanced Option Strategies - Part 1"</li>
+            <li>Link: <a href="https://share.descript.com/view/vFZXcGjR7rZ" target="_blank">Advanced Option Strategies</a></li>
+	    <li>Video: "Advanced Option Strategies - Part 2"</li>
+            <li>Link: <a href="https://share.descript.com/view/vaX521QndVS" target="_blank">Advanced Option Strategies</a></li>
+            <li>PDF: <a href="https://acrobat.adobe.com/id/urn:aaid:sc:VA6C2:advanced-options-pdf" target="_blank" onclick="markPDFDownloaded(14)">Download Advanced Option Strategies PDF</a></li>
+          </ul>
+          <button id="take-quiz-button-14" class="take-quiz-button" onclick="showQuiz(14)" disabled>Take Quiz</button>
+          <div class="quiz-container" id="quiz-container-14" style="display: none;">
+            <form id="quiz-form-14" onsubmit="return checkQuiz(14)">
+              <p>Question 1: What is the main advantage of using a covered call strategy?</p>
+              <label><input type="radio" name="q1" value="c"> It allows for unlimited upside potential</label><br>
+              <label><input type="radio" name="q1" value="b"> It eliminates all risk in a stock position</label><br>
+              <label><input type="radio" name="q1" value="a"> It generates income while holding shares of stock</label><br>
+              <label><input type="radio" name="q1" value="d"> It profits most from volatile market conditions</label><br>
+              
+              <p>Question 2: When would a trader use a married put?</p>
+              <label><input type="radio" name="q2" value="b"> When they expect the stock price to remain stable</label><br>
+              <label><input type="radio" name="q2" value="a"> When they are bullish on a stock but want downside protection</label><br>
+              <label><input type="radio" name="q2" value="c"> When they believe the stock will drop significantly and want to short it</label><br>
+              <label><input type="radio" name="q2" value="d"> When they want to generate income by selling option premiums</label><br>
+              
+              <p>Question 3: What is a key risk of a long straddle strategy?</p>
+              <label><input type="radio" name="q3" value="b"> It loses money if the stock moves significantly in either direction</label><br>
+              <label><input type="radio" name="q3" value="a"> It has a high initial cost due to the premiums of both options</label><br>
+              <label><input type="radio" name="q3" value="c"> It requires ownership of 100 shares of stock to execute</label><br>
+              <label><input type="radio" name="q3" value="d"> It is only profitable if the stock moves exactly to the strike price</label><br>
+              
+              <p>Question 4: How does an iron condor strategy generate profits?</p>
+              <label><input type="radio" name="q4" value="c"> By profiting from high volatility in either direction</label><br>
+              <label><input type="radio" name="q4" value="b"> By using multiple call options to maximize upside</label><br>
+              <label><input type="radio" name="q4" value="a"> By benefiting from a stock staying within a specific price range</label><br>
+              <label><input type="radio" name="q4" value="d"> By shorting stock to hedge against market downturns</label><br>
+              
+              <p>Question 5: Why would a trader choose a bull call spread instead of buying a single call?</p>
+              <label><input type="radio" name="q5" value="b"> To increase their potential profit if the stock rises</label><br>
+              <label><input type="radio" name="q5" value="a"> To lower the cost of the trade while limiting downside risk</label><br>
+              <label><input type="radio" name="q5" value="c"> To benefit from a stock dropping in price</label><br>
+              <label><input type="radio" name="q5" value="d"> To ensure they can hold the trade for an unlimited time</label><br>
+
+              <button type="submit">Submit Quiz</button>
+            </form>
+            <p class="quiz-passed" id="quiz-14-passed" style="display: none;">Quiz Passed! Course Complete.</p>
+          </div>
+        </div>
+      </div>
+
+    </div> <!-- End of Course Container -->
+  </div> <!-- End of Flex Container -->
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2023 Your Trading Course. All rights reserved.</p>
+  </footer>
+
+  <!-- Minimal Inline Script for Quiz Functions and PDF Tracking -->
+  <script>
+    function showQuiz(courseNumber) {
+      var quizContainer = document.getElementById("quiz-container-" + courseNumber);
+      if (quizContainer) {
+        quizContainer.style.display = "block";
+      }
+    }
+    function checkQuiz(courseNumber) {
+      // For demonstration, mark the quiz as passed.
+      var quizContainer = document.getElementById("quiz-container-" + courseNumber);
+      if (quizContainer) {
+        quizContainer.style.display = "none";
+      }
+      var passedMsg = document.getElementById("quiz-" + courseNumber + "-passed");
+      if (passedMsg) {
+        passedMsg.style.display = "block";
+      }
+      return false; // Prevent form submission.
+    }
+    function markPDFDownloaded(courseNumber) {
+      console.log("PDF for course " + courseNumber + " downloaded.");
+    }
+  </script>
+</body>
+</html>

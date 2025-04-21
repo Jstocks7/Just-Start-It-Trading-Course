@@ -1,0 +1,181 @@
+/* General Styles */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+nav {
+  background: #444;
+  padding: 10px;
+  text-align: center;
+}
+
+nav a {
+  color: #fff;
+  margin: 0 15px;
+  text-decoration: none;
+}
+
+main {
+  flex: 1; /* Ensures the main content takes up the remaining space */
+  padding: 20px;
+  padding-bottom: 60px; /* Add padding to prevent footer overlap */
+}
+
+footer {
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  width: 100%;
+  position: relative; /* Changed from fixed to relative */
+  margin-top: auto; /* Push the footer to the bottom */
+}
+
+/* Home Page Styles */
+.hero {
+  background: #f4f4f4;
+  padding: 50px;
+  text-align: center;
+}
+
+.cta-button {
+  padding: 10px 20px;
+  background: #333;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.cta-button:hover {
+  background: #555;
+}
+
+/* Courses Page Styles */
+.courses-container {
+  padding: 20px;
+  text-align: center;
+}
+
+.module {
+  background: #f4f4f4;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 10px auto;
+  width: 80%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.module.locked {
+  opacity: 0.6;
+  pointer-events: none; /* Prevent clicking on locked modules */
+}
+
+.module h3 {
+  margin-top: 0;
+}
+
+.module button {
+  padding: 10px 15px;
+  background: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.module button:disabled {
+  background: #888;
+  cursor: not-allowed;
+}
+
+.module button:hover:not(:disabled) {
+  background: #555;
+}
+
+.task {
+  margin-top: 20px;
+}
+
+.task iframe {
+  margin-bottom: 10px;
+}
+
+.task form {
+  margin-top: 10px;
+}
+
+.task input {
+  padding: 5px;
+  margin-right: 10px;
+}
+
+/* About Page Styles */
+.about-container {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.about-container h2 {
+  margin-top: 20px;
+  color: #333;
+}
+
+.about-container p {
+  line-height: 1.8;
+  color: #555;
+}
+
+.team {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.team-member {
+  background: #f4f4f4;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 10px;
+  width: 30%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.team-member h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.team-member p {
+  color: #555;
+}
+
+.about-container ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.about-container ul li {
+  margin-bottom: 10px;
+  color: #555;
+}
