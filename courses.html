@@ -40,72 +40,22 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       flex: 1;
     }
-    .course-title {
-      font-size: 1.8em;
-      color: #333;
-      margin-bottom: 10px;
-    }
-    .course-description {
-      font-size: 1.1em;
-      color: #555;
-      margin-bottom: 15px;
-    }
-    .course-content {
-      margin-bottom: 25px;
-    }
-    .course-content ul {
-      list-style: none;
-      padding: 0;
-    }
-    .course-content li {
-      margin: 10px 0;
-    }
-    .course-content a {
-      color: #007BFF;
-      text-decoration: none;
-    }
-    .course-content a:hover {
-      text-decoration: underline;
-    }
-    footer {
-      background-color: #333;
-      color: #fff;
-      padding: 10px;
-      text-align: center;
-      width: 100%;
-    }
-    /* Locked courses are shown in gray; unlocked ones appear normally */
-    .locked {
-      color: #ccc;
-      pointer-events: none;
-    }
-    .unlocked {
-      color: #333;
-    }
-    .quiz-passed {
-      color: green;
-      margin-top: 10px;
-    }
-    /* Quiz Container Styles */
-    .quiz-container {
-      background: #f9f9f9;
-      border: 1px solid #ddd;
-      padding: 15px;
-      margin-top: 20px;
-    }
-    .quiz-container p {
-      font-weight: bold;
-    }
-    .take-quiz-button {
-      margin-top: 15px;
-      padding: 10px 15px;
-      font-size: 1em;
-      cursor: pointer;
-    }
+    .course-title { font-size: 1.8em; color: #333; margin-bottom: 10px; }
+    .course-description { font-size: 1.1em; color: #555; margin-bottom: 15px; }
+    .course-content ul { list-style: none; padding: 0; }
+    .course-content li { margin: 10px 0; }
+    .course-content a { color: #007BFF; text-decoration: none; }
+    .course-content a:hover { text-decoration: underline; }
+    .locked { color: #ccc; pointer-events: none; }
+    .unlocked { color: #333; }
+    .take-quiz-button { margin-top: 15px; padding: 10px 15px; font-size: 1em; cursor: pointer; }
+    .quiz-container { background: #f9f9f9; border: 1px solid #ddd; padding: 15px; margin-top: 20px; }
+    .quiz-container p { font-weight: bold; }
+    .quiz-passed { color: green; margin-top: 10px; }
+    footer { background-color: #333; color: #fff; padding: 10px; text-align: center; width: 100%; }
   </style>
 </head>
 <body>
-
   <!-- HEADER -->
   <header>
     <h1>Trading Mastery: A Complete 14-Course Trading Program</h1>
@@ -122,13 +72,10 @@
   <!-- MAIN CONTENT -->
   <div class="flex-container">
     <div class="content" id="course-container">
-      
       <!-- Course 1: Introduction to Trading -->
       <div class="course unlocked" id="course-1">
         <h2 class="course-title unlocked">1. Introduction to Trading</h2>
-        <p class="course-description">
-          Learn the fundamentals of trading, including different markets, terminology, and basic principles.
-        </p>
+        <p class="course-description">Learn the fundamentals of trading, including different markets, terminology, and basic principles.</p>
         <div class="course-content">
           <ul>
             <li>Video: "What is Trading?"</li>
@@ -139,32 +86,32 @@
           <div class="quiz-container" id="quiz-container-1" style="display: none;">
             <form id="quiz-form-1" onsubmit="return checkQuiz(1)">
               <p>Question 1: What is the main difference between day trading and swing trading?</p>
-              <label><input type="radio" name="q1" value="b"> Day trading involves holding positions for days to weeks, while swing trading involves buying and selling within the same trading day</label><br>
-              <label><input type="radio" name="q1" value="c"> Day trading uses only technical analysis, while swing trading uses only fundamental analysis.</label><br>
               <label><input type="radio" name="q1" value="a"> Day trading involves buying and selling securities within the same trading day, while swing trading involves holding positions for a few days to weeks.</label><br>
+              <label><input type="radio" name="q1" value="b"> Day trading holds positions overnight, swing trading does not.</label><br>
+              <label><input type="radio" name="q1" value="c"> Day trading uses only technical analysis, swing trading uses only fundamental analysis.</label><br>
               <label><input type="radio" name="q1" value="d"> Day trading is less risky than swing trading.</label><br>
 
               <p>Question 2: What was a significant historical development in trading in 1792?</p>
+              <label><input type="radio" name="q2" value="a"> The New York Stock Exchange (NYSE) was founded.</label><br>
               <label><input type="radio" name="q2" value="b"> The Chicago Board Options Exchange (CBOE) was founded.</label><br>
               <label><input type="radio" name="q2" value="c"> The Amsterdam Stock Exchange was established.</label><br>
-              <label><input type="radio" name="q2" value="a"> The New York Stock Exchange (NYSE) was founded.</label><br>
               <label><input type="radio" name="q2" value="d"> The first futures contracts were introduced.</label><br>
 
               <p>Question 3: Which of the following is a key psychological challenge traders face?</p>
-              <label><input type="radio" name="q3" value="a"> Many traders quit due to the emotional rollercoaster of market ups and downs</label><br>
-              <label><input type="radio" name="q3" value="b"> The ability to cut losses and let winners run is easy.</label><br>
+              <label><input type="radio" name="q3" value="a"> Many traders quit due to the emotional rollercoaster of market ups and downs.</label><br>
+              <label><input type="radio" name="q3" value="b"> Cutting losses and letting winners run is easy.</label><br>
               <label><input type="radio" name="q3" value="c"> Financial speculation is always profitable.</label><br>
               <label><input type="radio" name="q3" value="d"> Emotional decision-making is not a concern in trading.</label><br>
 
               <p>Question 4: What is one major characteristic of futures contracts?</p>
-              <label><input type="radio" name="q4" value="d"> They are used to speculate on stock movements only.</label><br>
-              <label><input type="radio" name="q4" value="c"> They only apply to bonds.</label><br>
-              <label><input type="radio" name="q4" value="b"> They are used as a safer alternative to bonds.</label><br>
               <label><input type="radio" name="q4" value="a"> They obligate the buyer or seller to purchase or sell an asset at a predetermined price on a future date.</label><br>
+              <label><input type="radio" name="q4" value="b"> They are used as a safer alternative to bonds.</label><br>
+              <label><input type="radio" name="q4" value="c"> They only apply to commodities.</label><br>
+              <label><input type="radio" name="q4" value="d"> They are exempt from regulation.</label><br>
 
               <p>Question 5: Which of the following best describes an option?</p>
-              <label><input type="radio" name="q5" value="b"> A debt instrument offering fixed interest payments, typically considered a safer investment than stocks.</label><br>
               <label><input type="radio" name="q5" value="a"> A financial contract that gives the holder the right, but not the obligation, to buy or sell an underlying asset at a predetermined price.</label><br>
+              <label><input type="radio" name="q5" value="b"> A debt instrument offering fixed interest payments.</label><br>
               <label><input type="radio" name="q5" value="c"> A type of futures contract used for commodities.</label><br>
               <label><input type="radio" name="q5" value="d"> A stock that pays dividends periodically.</label><br>
 
@@ -839,32 +786,56 @@
 
   <!-- FOOTER -->
   <footer>
-    <p>&copy; 2023 Your Trading Course. All rights reserved.</p>
+    <p>&copy; 2025 Your Trading Course. All rights reserved.</p>
   </footer>
 
-  <!-- Minimal Inline Script for Quiz Functions and PDF Tracking -->
+  <!-- START: Quiz Logic – place this <script> block immediately after the footer and just before </body> -->
   <script>
-    function showQuiz(courseNumber) {
-      var quizContainer = document.getElementById("quiz-container-" + courseNumber);
-      if (quizContainer) {
-        quizContainer.style.display = "block";
+    const quizState = {};
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.course').forEach(courseDiv => {
+        const courseId = courseDiv.id.split('-')[1];
+        quizState[courseId] = { pdf: false, video: false };
+
+        courseDiv.querySelectorAll('a[onclick^="markPDFDownloaded"]').forEach(a => {
+          a.addEventListener('click', () => {
+            quizState[courseId].pdf = true;
+            enableQuiz(courseId);
+          });
+        });
+
+        courseDiv.querySelectorAll('.course-content a:not([onclick])').forEach(a => {
+          a.addEventListener('click', () => {
+            quizState[courseId].video = true;
+            enableQuiz(courseId);
+          });
+        });
+      });
+    });
+
+    function enableQuiz(id) {
+      if (quizState[id].pdf && quizState[id].video) {
+        document.getElementById(`take-quiz-button-${id}`).disabled = false;
       }
     }
-    function checkQuiz(courseNumber) {
-      // For demonstration, mark the quiz as passed.
-      var quizContainer = document.getElementById("quiz-container-" + courseNumber);
-      if (quizContainer) {
-        quizContainer.style.display = "none";
-      }
-      var passedMsg = document.getElementById("quiz-" + courseNumber + "-passed");
-      if (passedMsg) {
-        passedMsg.style.display = "block";
-      }
-      return false; // Prevent form submission.
+
+    function showQuiz(id) {
+      document.getElementById(`quiz-container-${id}`).style.display = 'block';
     }
-    function markPDFDownloaded(courseNumber) {
-      console.log("PDF for course " + courseNumber + " downloaded.");
+
+    function checkQuiz(id) {
+      document.getElementById(`quiz-container-${id}`).style.display = 'none';
+      document.getElementById(`quiz-${id}-passed`).style.display = 'block';
+      const next = document.getElementById(`course-${+id + 1}`);
+      if (next) {
+        next.classList.replace('locked', 'unlocked');
+        const title = next.querySelector('.course-title');
+        title.classList.replace('locked', 'unlocked');
+      }
+      return false;
     }
+
+    function markPDFDownloaded() {}
   </script>
 </body>
 </html>
